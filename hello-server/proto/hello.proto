@@ -1,0 +1,18 @@
+syntax="proto3";
+
+option go_package =".;service";
+
+service SayHello{
+  rpc SayHello(HelloRequest) returns (HelloResponse){}
+}
+
+message HelloRequest{
+  string requestName=1;
+}
+
+message HelloResponse{
+  string responseMsg=1;
+}
+
+//protoc --go_out=. hello.proto
+//protoc --go-grpc_out=. hello.proto
